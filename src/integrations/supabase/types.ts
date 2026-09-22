@@ -1974,6 +1974,70 @@ export type Database = {
           },
         ]
       }
+      offline_dental_history: {
+        Row: {
+          amount_paid: number
+          created_at: string
+          dentist_id: string | null
+          history_date: string
+          id: string
+          notes: string | null
+          org_id: string
+          patient_id: string
+          procedure: string
+          treatment: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount_paid?: number
+          created_at?: string
+          dentist_id?: string | null
+          history_date?: string
+          id?: string
+          notes?: string | null
+          org_id: string
+          patient_id: string
+          procedure: string
+          treatment?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount_paid?: number
+          created_at?: string
+          dentist_id?: string | null
+          history_date?: string
+          id?: string
+          notes?: string | null
+          org_id?: string
+          patient_id?: string
+          procedure?: string
+          treatment?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "offline_dental_history_dentist_id_fkey"
+            columns: ["dentist_id"]
+            isOneToOne: false
+            referencedRelation: "staff"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "offline_dental_history_org_id_fkey"
+            columns: ["org_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "offline_dental_history_patient_id_fkey"
+            columns: ["patient_id"]
+            isOneToOne: false
+            referencedRelation: "patients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       optical_orders: {
         Row: {
           amount_paid: number
